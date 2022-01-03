@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { FC } from "react";
 
 interface MenuItemProps {
@@ -7,13 +8,15 @@ interface MenuItemProps {
 
 const MenuItem: FC<MenuItemProps> = ({title, path}) => (
 	<li>
-		<a
+		<Link
 		 	href={path}
-			className="block py-2 pr-4 pl-3 text-white hover:text-blue-200 rounded md:bg-transparent md:p-0"
+			passHref
 			aria-current="page"
 		>
-			{title}
-		</a>
+			<a className="block py-2 pr-4 pl-3 text-white hover:text-blue-200 rounded md:bg-transparent md:p-0">
+				{title}
+			</a>
+		</Link>
 </li>
 )
 
@@ -35,9 +38,11 @@ const MenuItems: MenuItemProps[] = [
 const Navbar: FC = () => 
 	<nav className="w-full border-gray-200 px-2 sm:px-4 py-2.5 bg-gray-800">
     <div className="container flex flex-wrap justify-between items-center mx-auto">
-        <a href="#" className="flex">
-        	<span className="self-center text-lg font-semibold whitespace-nowrap dark:text-white">FractalBaby</span>
-        </a>
+        <Link href="/" passHref>
+					<a className="flex">
+        		<span className="self-center text-lg font-semibold whitespace-nowrap dark:text-white">FractalBaby</span>
+					</a>
+        </Link>
         <button data-collapse-toggle="mobile-menu" type="button" className="inline-flex items-center p-2 ml-3 text-sm rounded-lg md:hidden text-gray-400 hover:bg-gray-700 focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
 					<span className="sr-only">Open main menu</span>
 					<svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
