@@ -13,7 +13,7 @@ const MenuItem: FC<MenuItemProps> = ({title, path}) => (
 			passHref
 			aria-current="page"
 		>
-			<a className="block py-2 pr-4 pl-3 text-white hover:text-blue-200 rounded md:bg-transparent md:p-0">
+			<a className="block py-2 pr-4 pl-3 text-white hover:text-red-500 rounded md:bg-transparent md:p-0">
 				{title}
 			</a>
 		</Link>
@@ -36,7 +36,7 @@ const MenuItems: MenuItemProps[] = [
 ]
 
 const Navbar: FC = () => 
-	<nav className="w-full border-gray-200 px-2 sm:px-4 py-2.5 bg-gray-800">
+	<nav className="w-full border-gray-200 px-2 sm:px-4 py-2.5 bg-gray-900">
     <div className="container flex flex-wrap justify-between items-center mx-auto">
         <Link href="/" passHref>
 					<a className="flex">
