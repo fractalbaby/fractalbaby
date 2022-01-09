@@ -28,7 +28,7 @@ const Layout: FC = ({children}) => {
 	useEffect(() => {
 		const index = Math.floor(Math.random() * 100) % trackList.length
 		setTrackId(trackList[index])
-	})
+	}, [])
 
 	return (
 	<div className="flex flex-col items-center justify-center min-h-screen">
