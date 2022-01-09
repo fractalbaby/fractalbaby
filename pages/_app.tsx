@@ -31,9 +31,13 @@ const trackList = [
 function App({ Component, pageProps }: AppProps) {
   const [trackId, setTrackId] = useState<string | undefined>()
 
-	useEffect(() => {
+	const setRandomTrack = () => {
 		const index = Math.floor(Math.random() * 100) % trackList.length
 		setTrackId(trackList[index])
+	}
+
+	useEffect(() => {
+		setRandomTrack()
 	}, [])
 
   return(
@@ -43,6 +47,7 @@ function App({ Component, pageProps }: AppProps) {
       {
         trackId !== undefined &&
         <footer className='w-full absolute bottom-0'>
+					<button onClick={setRandomTrack} className='bg-white p-2 float-right font-bold change-track'>Change Track</button>
           <iframe width="100%" height="100" scrolling="no" frameBorder="no" allow="autoplay" src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${trackId}&color=%239a123d&auto_play=true&show_comments=true&show_user=true&show_reposts=false`}></iframe><div style={{fontSize: '10px', color: '#cccccc', lineBreak: 'anywhere', wordBreak: 'normal', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', fontFamily: 'Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif', fontWeight: '100'}}><a href="https://soundcloud.com/fractal-baby" title="Fractal Baby" target="_blank" rel="noreferrer" style={{color: '#cccccc', textDecoration: 'none'}}>Fractal Baby</a> · <a href="https://soundcloud.com/fractal-baby/sets/fractal-baby" title="Fractal Baby" target="_blank" rel="noreferrer" style={{color: '#cccccc', textDecoration: 'none'}}>Fractal Baby</a></div>
         </footer>
       }
