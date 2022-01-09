@@ -4,6 +4,7 @@ export const Navbar = styled.nav({
   position: 'absolute',
   top: 0,
   padding: '14px 0',
+  zIndex: 100,
 })
 
 export const DropDown = styled.div({
