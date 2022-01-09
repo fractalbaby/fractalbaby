@@ -38,8 +38,8 @@ export const SubMenu = styled.ul({
     top: '30px',
     background: 'rgb(17, 24, 39)',
     padding: '16px',
-    borderBottomLeftRadius: '20px',
+    borderBottomLeftRadius: '40px',
     zIndex: '1',
-    minWidth: '150px',
+    minWidth: '140px',
   }
 }))
