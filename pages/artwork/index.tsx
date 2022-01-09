@@ -1,12 +1,12 @@
 import { FC } from "react";
 import Layout from "../../components/shared/layout"
 
-const Lucko: FC = () => (
+const Artwork: FC = () => (
 	<Layout>
 		<h1 className="text-6xl font-bold text-white">
-			Lučko has my flapjacks
+			Let's get learnt to make art!
 		</h1>
 	</Layout>
 )
 
-export default Lucko
+export default Artwork
