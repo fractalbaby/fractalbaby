@@ -30,3 +30,7 @@ a:hover {
 .bg-layer-dark {
   background-color: rgba(17, 24, 39, 0.9);
 }
+
+.change-track:hover {
+  color: rgb(110, 13, 43)
+}
