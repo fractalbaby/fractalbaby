@@ -1,12 +1,14 @@
 import { FC } from "react";
 import Layout from "../../components/shared/layout"
 
-const SpaceApe: FC = () => (
+const Contact: FC = () => (
 	<Layout>
 		<h1 className="text-6xl font-bold text-white">
-			Space Ape has my flapjacks
+			Get in touch!
 		</h1>
+    <div className="text-2xl text-white">thefractalbaby@gmail.com</div>
+
 	</Layout>
 )
 
-export default SpaceApe
+export default Contact

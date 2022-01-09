@@ -38,8 +38,8 @@ const Layout: FC = ({children}) => {
 			<link rel="icon" href="/favicon.ico" />
 		</Head>
 		<Navbar />
-		<main className="flex flex-col w-full bg-fractal flex-1 ">
-			<div className='bg-layer-dark flex items-center justify-center flex-1 text-center'>
+		<main className="flex w-full bg-fractal flex-1 ">
+			<div className='bg-layer-dark flex flex-col items-center justify-center flex-1 text-center'>
 				{children}
 			</div>
 		</main>
