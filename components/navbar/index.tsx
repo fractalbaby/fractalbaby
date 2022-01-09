@@ -1,37 +1,108 @@
-import Link from "next/link";
-import React, { FC } from "react";
+import Link from 'next/link'
+import React, { FC } from 'react'
+import styled from '@xstyled/emotion'
 
 interface MenuItemProps {
 	title: string
-	path: string
+	path?: string
+	items?: MenuItemProps[]
+}
+
+const StyledDropDown = styled.div({
+	cursor: 'pointer',
+	'&  ul': {
+		display: 'none'
+	},
+	'&:hover > ul': {
+		display: 'block'
+	}
+})
+
+const StyledMenuItem = styled.a({
+
+})
+
+const StyledSubMenu = styled.ul({
+	display: 'none',
+	position: 'absolute',
+})
+
+const DropDownMenu: FC<MenuItemProps> = ({title, path, items}) => {
+
+	return (
+		<StyledDropDown>
+			<MenuItem {...{title, path}} />
+			<StyledSubMenu>
+				{items?.map(({title, path}) => (
+					<MenuItem {...{title, path}} key={title} />
+				))}
+			</StyledSubMenu>
+		</StyledDropDown>
+	)
 }
 
 const MenuItem: FC<MenuItemProps> = ({title, path}) => (
 	<li>
-		<Link
-		 	href={path}
-			passHref
-			aria-current="page"
-		>
-			<a className="block py-2 pr-4 pl-3 text-white hover:text-red-500 rounded md:bg-transparent md:p-0">
+		{ path !== undefined ?
+			<Link
+				href={path}
+				passHref
+				aria-current="page"
+			>
+				<StyledMenuItem className="py-2 pr-4 pl-3 text-white hover:text-red-500 md:p-0">
+					{title}
+				</StyledMenuItem>
+	 		</Link> :
+			<StyledMenuItem as='span' className="py-2 pr-4 pl-3 text-white hover:text-red-500 md:p-0">
 				{title}
-			</a>
-		</Link>
+		 	</StyledMenuItem>	
+		}
 </li>
 )
 
 const MenuItems: MenuItemProps[] = [
 	{
-		title: 'Lučko',
-		path: '/lucko',	
+		title: 'Music',
+		path: '/music',
 	},
 	{
-		title: 'Space Ape',
-		path: '/space-ape',	
+		title: 'Artists',
+		path: '/artists',
+		items: [
+			{
+				title: 'Lučko',
+				path: '/lucko',	
+			},
+			{
+				title: 'Space Ape',
+				path: '/space-ape',	
+			},
+			{
+				title: 'Trippyverse',
+				path: '/trippyverse',	
+			},
+		]
 	},
 	{
-		title: 'Trippyverse',
-		path: '/trippyverse',	
+		title: 'Artwork',
+		path: '/artwork',
+	},
+	{
+		title: 'Contact',
+		path: '/contact',
+	},
+	{
+		title: 'Stuff',
+		items: [
+			{
+				title: 'Presets',
+				path: '/presets'
+			},
+			{
+				title: 'Samples',
+				path: '/samples'
+			}
+		]
 	},
 ]
 
@@ -50,8 +121,10 @@ const Navbar: FC = () =>
         </button>
         <div className="hidden w-full md:block md:w-auto" id="mobile-menu">
 					<ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
-						{MenuItems.map(({title, path}) => (
-							<MenuItem title={title} path={path} key={title} />
+						{MenuItems.map(({title, path, items}) => (
+							items !== undefined ?
+								<DropDownMenu  title={title} path={path} items={items} key={title} /> :
+								<MenuItem title={title} path={path} key={title} />
 						))}
 					</ul>
         </div>
