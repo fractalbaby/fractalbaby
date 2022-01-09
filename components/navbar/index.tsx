@@ -27,11 +27,11 @@ const MenuItem: FC<Config.MenuItemProps> = ({title, path}) => (
 				passHref
 				aria-current="page"
 			>
-				<a className="text-white hover:text-red-500 py-3">
+				<a className="text-white hover:text-red-500 py-2">
 					{title}
 				</a>
 	 		</Link> :
-			<div className="text-white hover:text-red-500 py-3">
+			<div className="text-white hover:text-red-500 py-2">
 				{title}
 		 	</div>	
 		}

@@ -1,11 +1,9 @@
 import Head from 'next/head'
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC } from 'react'
 import Navbar from '../../navbar'
 
 
-const Layout: FC = ({children}) => {
-
-	return (
+const Layout: FC = ({children}) => (
 	<div className="flex flex-col items-center justify-center min-h-screen">
 		<Head>
 			<title>Fractal Baby</title>
@@ -19,7 +17,6 @@ const Layout: FC = ({children}) => {
 			</div>
 		</main>
 	</div>
-	)
-}
+)
 
 export default Layout
